@@ -4,8 +4,12 @@ import os
 import random
 
 import uuid
+from datetime import timedelta
+from typing import Any, Coroutine
+
 from dotenv import load_dotenv
-from temporalio.client import Client
+from temporalio.client import Client, Schedule, ScheduleActionStartWorkflow, ScheduleSpec, ScheduleIntervalSpec, \
+    ScheduleHandle
 
 from CreatePostWorkflow import CreatePostWorkflow, CreatePostWorkflowInput
 
@@ -20,9 +24,7 @@ logger = logging.getLogger(__name__)
 temporal_address = os.getenv('TEMPORAL_ADDRESS')
 task_queue = os.getenv('TASK_QUEUE')
 
-async def main():
-    client = await Client.connect(temporal_address)
-
+async def run_workflow(client: Client):
     handle = await client.start_workflow(
         workflow=CreatePostWorkflow.run,
         args=[CreatePostWorkflowInput()],
@@ -32,11 +34,30 @@ async def main():
 
     print(f"Started workflow with ID: {handle.id}")
 
-    result = await handle.result()
+    return handle
 
-    print(f"Workflow completed with result: {result}")
 
-    return result
+async def start_schedule(client: Client, interval: timedelta) -> ScheduleHandle:
+    return await client.create_schedule(
+        f"Каждые {interval} [{uuid.uuid4().hex}]",
+        Schedule(
+            action=ScheduleActionStartWorkflow(
+                CreatePostWorkflow.run,
+                args=[CreatePostWorkflowInput()],
+                id='Пост фотографии в инстаграм',
+                task_queue=task_queue,
+            ),
+            spec=ScheduleSpec(
+                intervals=[ScheduleIntervalSpec(every=interval)]
+            ),
+        ),
+    )
+
+
+async def main():
+    client = await Client.connect(temporal_address)
+
+    await start_schedule(client, timedelta(minutes=10))
 
 
 if __name__ == "__main__":

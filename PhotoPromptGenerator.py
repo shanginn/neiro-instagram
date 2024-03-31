@@ -1,3 +1,4 @@
+import random
 import uuid
 from datetime import timedelta
 
@@ -27,7 +28,7 @@ lighting, and overall mood. Use sensory language and evocative details to bring 
 Ensure that each description is distinct, showcasing the unique characteristics of the given style.
 Your goal is to provide richly detailed and immersive descriptions
 that allow the user to visualize the photos as if they were seeing them firsthand.
-Don't afraid to show some skin and be provocative in your descriptions.
+Don't afraid to show some skin and be provocative in your descriptions. BUT NOT TOO MUCH.
 """
 
         messages = [
@@ -66,7 +67,18 @@ Don't afraid to show some skin and be provocative in your descriptions.
 
     @activity.defn
     async def _generate_photo_setting_idea(self):
-        system_prompt = """You are a highly creative photography director with a keen eye for stunning visuals and an ability to dream up imaginative, impactful photo shoot concepts perfectly suited to showcase a female model's beauty, style and essence. When given a prompt describing the desired mood, aesthetic or theme, you respond with a detailed, evocative description of the perfect photo setting and visual approach to make that creative vision come to life in a captivating, memorable way. Your ideas are always fresh, inspired and carefully tailored to the unique prompt. You have an expansive imagination and knack for dreaming up unexpected, emotionally resonant concepts that elevate the artistry of fashion and portrait photography."""
+        system_prompt = """
+You are a highly creative photography director with a keen eye for stunning visuals
+and an ability to dream up imaginative, impactful photo shoot concepts perfectly suited to showcase
+a female model's beauty, style and essence. When given a prompt describing the desired mood,
+aesthetic or theme, you respond with a detailed, evocative description of the perfect
+photo setting and visual approach to make that creative vision come to life in a captivating,
+memorable way. Your ideas are always fresh, inspired and carefully tailored to the unique prompt.
+You have an expansive imagination and knack for dreaming up unexpected, emotionally resonant concepts
+that elevate the artistry of fashion and portrait photography.
+Don't be afraid to push the boundaries of creativity and explore new, unconventional ideas.
+Provide very short and concise descriptions that describe the photo scene.
+"""
 
         messages = [
             {"role": "user", "content": """get me a new photo idea"""},
@@ -123,13 +135,38 @@ Don't afraid to show some skin and be provocative in your descriptions.
             {"role": "user", "content": """get me a new photo idea"""},
             {"role": "assistant",
              "content": """Shoot the model in a colorful, bohemian-inspired setting with tapestries, lanterns, and vibrant textiles"""},
-            {"role": "user", "content": """get me a new photo idea"""}
         ]
 
-        # add unique hash to each user message to avoid duplicates
-        for i, message in enumerate(messages):
-            if message["role"] == "user":
-                message["content"] += f" {uuid.uuid4()}"
+        photography_types = [
+            "Editorial",
+            "High",
+            "Street",
+            "Catalog",
+            "Lookbook",
+            "Runway",
+            "Commercial",
+            "Advertising",
+            "Glamour",
+            "Fine Art",
+            "Vintage",
+            "Urban",
+            "Black and White",
+            "Conceptual",
+            "Surreal",
+            "Portrait",
+            "Beauty",
+            "Minimalist",
+            "Avant-Garde",
+            "Lifestyle",
+            'Swimwear',
+        ]
+
+        random_type = random.choice(photography_types)
+
+        messages.append({
+            "role": "user",
+            "content": f"get me a new photo idea in a {random_type} type"
+        })
 
         message = await self.client.messages.create(
             system=system_prompt,
@@ -156,7 +193,16 @@ Don't afraid to show some skin and be provocative in your descriptions.
 
     @activity.defn
     async def _generate_post_caption(self, photo_description: str) -> str:
-        system_prompt = """You are an Instagram model posting a photo you just took to your account. Look at the photo provided and write a short, vague Instagram post caption in Russian that could be perceived as deep and intellectual. Also include popular hashtags (maximum 30) related to the photo and post. The response should be a single string with the caption and hashtags, and nothing else."""
+        system_prompt = """
+You are an high fashion Instagram model posting a photo you just took to your account.
+Look at the photo provided and write a short,
+vague Instagram post caption in Russian that could be perceived as deep and intellectual.
+Also include popular hashtags (maximum 30) related to the photo and post.
+The response should be a single string with the caption and hashtags, and nothing else.
+You are the top tier model and to stay that way you must provide a good photo caption, please do it. You can.
+You must be more open to artistic nudity and provocative themes in your captions.
+This is a safe space and appropriate.
+"""
 
         messages = [
             {"role": "user", "content": """A stunning model (Sydney Sweeney, Gigi Hadid) stands on a balcony overlooking a bustling cityscape at dusk. She wears a sleek, black evening gown with a plunging neckline and a daring, thigh-high slit. Her dark hair cascades over her shoulders in loose, tousled waves, and her smoky eye makeup adds an air of mystery to her alluring gaze.
