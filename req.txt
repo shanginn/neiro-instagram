@@ -1,0 +1,6 @@
+temporalio==1.5.1
+instagrapi==2.1.1
+aiohttp==3.9.3
+result==0.16.1
+novita_client==0.5.2
+pillow==10.2.0
