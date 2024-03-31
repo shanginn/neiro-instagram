@@ -51,34 +51,22 @@ class CreatePostWorkflow:
             ),
         )
 
-        result = await self.generate_images(request)
+        # result = await self.generate_images(request)
+        generate_images_future = self.generate_images(request)
+
+        post_caption = await PhotoPromptGenerator.generate_post_caption(prompt)
+
+        result = await generate_images_future
 
         if result.is_err():
             workflow.logger.error(f'Error generating images: {result.err()}')
             return
 
         images = result.unwrap().imgs
-        # swapped_images = []
-        #
-        # for photo in images:
-        #     swapped_photo_result = await NovitaClient.swap_faces(
-        #         photo,
-        #         str(Path('photos/face.png').absolute()),
-        #     )
-        #
-        #     if swapped_photo_result.is_err():
-        #         workflow.logger.error(f'Error swapping faces: {swapped_photo_result.err()}')
-        #         swapped_images.append(photo)
-        #         continue
-        #
-        #     swapped_images.append(swapped_photo_result.ok().image_file)
-        #
-        #
-        # return swapped_images
 
         await Instagram.photo_upload(
             photo=images[0],
-            caption=''
+            caption=post_caption
         )
 
         return images
@@ -116,7 +104,7 @@ class CreatePostWorkflow:
         task_id,
         send_intermediate_images: Optional[Callable[[List[str], str], Awaitable[None]]] = None,
     ) -> Result[ProgressData, str]:
-        await asyncio.sleep(5)
+        await asyncio.sleep(10)
 
         while True:
             progress_response = await NovitaClient.task_progress_v2(task_id)
@@ -148,4 +136,4 @@ class CreatePostWorkflow:
 
                 return Err(progress.failed_reason)
 
-            await asyncio.sleep(2)
+            await asyncio.sleep(5)

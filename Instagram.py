@@ -41,7 +41,7 @@ class Instagram:
         usertags: List[Usertag] = [],
         location: Location = None,
         extra_data: Dict[str, str] = {},
-    ) -> str:
+    ) -> dict:
         tmp_file = tempfile.NamedTemporaryFile()
         path = Path(tmp_file.name + '.png')
 
@@ -56,7 +56,12 @@ class Instagram:
             extra_data,
         )
 
-        return str(media.pk)
+        return {
+            'id': media.id,
+            'code': media.code,
+            'caption_text': media.caption_text,
+            'title': media.title,
+        }
 
     @staticmethod
     async def photo_upload(
@@ -66,7 +71,7 @@ class Instagram:
         usertags: List[Usertag] = [],
         location: Location = None,
         extra_data: Dict[str, str] = {},
-    ) -> str:
+    ) -> dict:
         return await workflow.execute_activity(
             Instagram._photo_upload,
             args=[photo, caption, upload_id, usertags, location, extra_data],
