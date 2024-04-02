@@ -10,6 +10,7 @@ from CreatePostWorkflow import CreatePostWorkflow
 from Instagram import Instagram
 from Novita import NovitaClient
 from PhotoPromptGenerator import PhotoPromptGenerator
+from Replicate import Replicate
 from Util import Util
 
 load_dotenv(os.getenv('ENV_FILE', '.env'))
@@ -21,9 +22,13 @@ logger = logging.getLogger(__name__)
 
 
 temporal_address = os.getenv('TEMPORAL_ADDRESS')
+
 anthropic_api_key = os.getenv('ANTHROPIC_API_KEY')
 omni_api_key = os.getenv('NOVITA_API_KEY')
+replicate_api_token = os.getenv('REPLICATE_API_TOKEN')
+
 instagram_creds = (os.getenv('INSTAGRAM_USERNAME'), os.getenv('INSTAGRAM_PASSWORD'))
+
 task_queue = os.getenv('TASK_QUEUE')
 
 
@@ -33,6 +38,7 @@ class Worker:
 
         client = await Client.connect(temporal_address)
         novita = NovitaClient(omni_api_key)
+        replicate = Replicate(replicate_api_token)
 
         instagram = Instagram(*instagram_creds)
         instagram.login()
@@ -53,6 +59,7 @@ class Worker:
                 *instagram.get_activities(),
                 *photo_prompt_generator.get_activities(),
                 *util.get_activities(),
+                *replicate.get_activities(),
             ]
         ).run()
 

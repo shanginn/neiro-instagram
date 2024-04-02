@@ -20,13 +20,11 @@ class ImageUtil:
     @staticmethod
     async def download_and_open_file(file_url: str) -> Result[Image, str]:
         if os.path.isfile(file_url):
-            return ImageUtil.open_file(
-                open(file_url, 'rb').read()
-            )
+            img_bytes = open(file_url, 'rb').read()
         else:
-            return ImageUtil.open_file(
-                await ImageUtil.download_file(file_url)
-            )
+            img_bytes = await ImageUtil.download_file(file_url)
+
+        return ImageUtil.open_file(img_bytes)
 
     @staticmethod
     async def download_file(file_url: str) -> bytes:

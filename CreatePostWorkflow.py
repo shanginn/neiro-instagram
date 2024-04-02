@@ -1,11 +1,11 @@
 import asyncio
 from dataclasses import dataclass
-from pathlib import Path
 from typing import Tuple, Optional, Awaitable, List, Callable, Coroutine, Any
 from result import Result, Ok, Err
 from temporalio import workflow
 
 with workflow.unsafe.imports_passed_through():
+    from Replicate import Replicate
     from PhotoPromptGenerator import PhotoPromptGenerator
     from Util import Util
     from Novita import NovitaClient
@@ -53,7 +53,6 @@ class CreatePostWorkflow:
             ),
         )
 
-        # result = await self.generate_images(request)
         generate_images_future = self.generate_images(request)
 
         post_caption = await PhotoPromptGenerator.generate_post_caption(prompt)
@@ -66,12 +65,27 @@ class CreatePostWorkflow:
 
         images = result.unwrap().imgs
 
+        img = images[0]
+
+        upscaled_result = await Replicate.creative_upscaler(
+            image=img,
+            dynamic=6,
+            creativity=0.3,
+            resemblance=1.6,
+        )
+
+        if upscaled_result.is_err():
+            workflow.logger.error(f'Error upscaling image: {upscaled_result.err()}')
+            return
+
+        photo = upscaled_result.ok()[0]
+
         await Instagram.photo_upload(
-            photo=images[0],
+            photo=photo,
             caption=post_caption
         )
 
-        return images
+        return photo, img
 
     async def generate_images(
         self,

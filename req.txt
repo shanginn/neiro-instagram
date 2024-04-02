@@ -4,3 +4,4 @@ aiohttp==3.9.3
 result==0.16.1
 novita_client==0.5.2
 pillow==10.2.0
+replicate=0.25.1
