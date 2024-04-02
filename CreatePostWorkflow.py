@@ -35,6 +35,8 @@ class CreatePostWorkflow:
         negative_prompt = 'worst quality, low resolution, bad hands, distorted, twisted, watermark, blurry'
         seed = await Util.get_seed()
 
+        prompt += ', perfect eyes, perfecteyes <lora:PerfectEyesXL_92996:1.0>'
+
         request = Txt2ImgRequest(
             prompt=prompt,
             negative_prompt=negative_prompt,

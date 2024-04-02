@@ -47,20 +47,29 @@ class Instagram:
 
         await ImageUtil.download_and_save_file(photo, path)
 
-        media = self.client.photo_upload(
-            path,
-            caption,
-            upload_id,
-            usertags,
-            location,
-            extra_data,
-        )
+        try:
+            media = self.client.photo_upload(
+                path,
+                caption,
+                upload_id,
+                usertags,
+                location,
+                extra_data,
+            )
+        except Exception as e:
+            return {
+                'ok': None,
+                'err': str(e),
+            }
 
         return {
-            'id': media.id,
-            'code': media.code,
-            'caption_text': media.caption_text,
-            'title': media.title,
+            'ok': {
+                'id': media.id,
+                'code': media.code,
+                'caption_text': media.caption_text,
+                'title': media.title,
+            },
+            'err': None
         }
 
     @staticmethod

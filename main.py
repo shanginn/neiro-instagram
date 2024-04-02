@@ -48,7 +48,8 @@ async def start_schedule(client: Client, interval: timedelta) -> ScheduleHandle:
                 task_queue=task_queue,
             ),
             spec=ScheduleSpec(
-                intervals=[ScheduleIntervalSpec(every=interval)]
+                intervals=[ScheduleIntervalSpec(every=interval)],
+                jitter=timedelta(minutes=5),
             ),
         ),
     )
@@ -57,7 +58,7 @@ async def start_schedule(client: Client, interval: timedelta) -> ScheduleHandle:
 async def main():
     client = await Client.connect(temporal_address)
 
-    await start_schedule(client, timedelta(minutes=10))
+    await run_workflow(client)
 
 
 if __name__ == "__main__":

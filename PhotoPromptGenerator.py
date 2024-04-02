@@ -29,6 +29,7 @@ Ensure that each description is distinct, showcasing the unique characteristics 
 Your goal is to provide richly detailed and immersive descriptions
 that allow the user to visualize the photos as if they were seeing them firsthand.
 Don't afraid to show some skin and be provocative in your descriptions. BUT NOT TOO MUCH.
+Output only the description without the intro.
 """
 
         messages = [
@@ -78,6 +79,7 @@ You have an expansive imagination and knack for dreaming up unexpected, emotiona
 that elevate the artistry of fashion and portrait photography.
 Don't be afraid to push the boundaries of creativity and explore new, unconventional ideas.
 Provide very short and concise descriptions that describe the photo scene.
+Output only the idea without the intro.
 """
 
         messages = [
@@ -165,7 +167,7 @@ Provide very short and concise descriptions that describe the photo scene.
 
         messages.append({
             "role": "user",
-            "content": f"get me a new photo idea in a {random_type} type"
+            "content": f"get me a new photo idea. {random_type} type"
         })
 
         message = await self.client.messages.create(
