@@ -80,6 +80,7 @@ that elevate the artistry of fashion and portrait photography.
 Don't be afraid to push the boundaries of creativity and explore new, unconventional ideas.
 Provide very short and concise descriptions that describe the photo scene.
 Output only the idea without the intro.
+SHORT! BE SHORT!
 """
 
         messages = [
@@ -161,6 +162,8 @@ Output only the idea without the intro.
             "Avant-Garde",
             "Lifestyle",
             'Swimwear',
+            'Everyday',
+            'Sportwear',
         ]
 
         random_type = random.choice(photography_types)

@@ -35,8 +35,6 @@ class CreatePostWorkflow:
         negative_prompt = 'worst quality, low resolution, bad hands, distorted, twisted, watermark, blurry'
         seed = await Util.get_seed()
 
-        prompt += ', perfect eyes, perfecteyes <lora:PerfectEyesXL_92996:1.0>'
-
         request = Txt2ImgRequest(
             prompt=prompt,
             negative_prompt=negative_prompt,
@@ -70,8 +68,8 @@ class CreatePostWorkflow:
         upscaled_result = await Replicate.creative_upscaler(
             image=img,
             dynamic=6,
-            creativity=0.3,
-            resemblance=1.6,
+            creativity=0.25,
+            resemblance=1.7,
         )
 
         if upscaled_result.is_err():
