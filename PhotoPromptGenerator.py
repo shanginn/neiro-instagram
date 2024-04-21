@@ -21,7 +21,7 @@ class PhotoPromptGenerator:
     async def _generate_photo_prompt(self, style: str) -> str:
         system_prompt = """
 You are an AI assistant that specializes in generating detailed descriptions
-of photos featuring a (Sydney Sweeney, Gigi Hadid) model in various styles,
+of photos featuring a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model in various styles,
 as specified by the user. Your descriptions should be vivid, imaginative,
 and capture the essence of each style while highlighting the model's appearance, outfit, setting,
 lighting, and overall mood. Use sensory language and evocative details to bring the images to life in the reader's mind.
@@ -35,25 +35,25 @@ Output only the description without the intro.
         messages = [
             {"role": "user", "content": """candid street style photo"""},
             {"role": "assistant",
-             "content": """Candid street style photo of a (Sydney Sweeney, Gigi Hadid) model in New York City, wearing a chic oversized blazer, ripped jeans, and designer sneakers. Her hair is styled in a messy bun and she has minimal makeup, giving her a cool, effortless look. The image has a slightly grainy, film-like quality, capturing the bustling energy of the city in the background. The overall vibe is casual, trendy, and authentic."""},
+             "content": """Candid street style photo of a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model in New York City, wearing a chic oversized blazer, ripped jeans, and designer sneakers. Her hair is styled in a messy bun and she has minimal makeup, giving her a cool, effortless look. The image has a slightly grainy, film-like quality, capturing the bustling energy of the city in the background. The overall vibe is casual, trendy, and authentic."""},
             {"role": "user", "content": """high fashion editorial"""},
             {"role": "assistant",
-             "content": """Striking high fashion editorial image featuring a (Sydney Sweeney, Gigi Hadid) model posing dramatically against a stark white background. She wears an avant-garde sculptural gown with exaggerated proportions and bold geometric patterns. Her makeup is artistic and bold, with graphic eyeliner and dark, vampy lips. The lighting is harsh and directional, creating strong shadows and highlighting the angles of her face and the architectural lines of the dress. The overall effect is edgy, modern, and high-impact."""},
+             "content": """Striking high fashion editorial image featuring a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model posing dramatically against a stark white background. She wears an avant-garde sculptural gown with exaggerated proportions and bold geometric patterns. Her makeup is artistic and bold, with graphic eyeliner and dark, vampy lips. The lighting is harsh and directional, creating strong shadows and highlighting the angles of her face and the architectural lines of the dress. The overall effect is edgy, modern, and high-impact."""},
             {"role": "user", "content": """vintage-inspired beauty shot"""},
             {"role": "assistant",
-             "content": """Soft, dreamy vintage-inspired beauty shot of a (Sydney Sweeney, Gigi Hadid) model channeling Old Hollywood glamour. She has luminous, porcelain skin, red lips, and a sleek finger wave hairstyle. The lighting is diffused and romantic, with a subtle glow that enhances her features. She wears delicate pearl earrings and a fur stole, evoking the elegance of a bygone era. The image has a timeless, nostalgic feel with a hint of modern sophistication."""},
+             "content": """Soft, dreamy vintage-inspired beauty shot of a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model channeling Old Hollywood glamour. She has luminous, porcelain skin, red lips, and a sleek finger wave hairstyle. The lighting is diffused and romantic, with a subtle glow that enhances her features. She wears delicate pearl earrings and a fur stole, evoking the elegance of a bygone era. The image has a timeless, nostalgic feel with a hint of modern sophistication."""},
             {"role": "user", "content": """sun-drenched beach portrait"""},
             {"role": "assistant",
-             "content": """Sun-kissed, radiant beach portrait of a (Sydney Sweeney, Gigi Hadid) model laughing joyfully on a pristine sandy shore. She wears a flowing, sheer cover-up over a patterned bikini, with her golden hair tousled by the ocean breeze. The warm, natural light illuminates her bronzed skin and highlights her natural beauty. The turquoise water and clear blue sky create a dreamy, tropical backdrop. The image captures a moment of pure, carefree happiness and natural, effortless allure."""},
+             "content": """Sun-kissed, radiant beach portrait of a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model laughing joyfully on a pristine sandy shore. She wears a flowing, sheer cover-up over a patterned bikini, with her golden hair tousled by the ocean breeze. The warm, natural light illuminates her bronzed skin and highlights her natural beauty. The turquoise water and clear blue sky create a dreamy, tropical backdrop. The image captures a moment of pure, carefree happiness and natural, effortless allure."""},
             {"role": "user", "content": """moody black and white shot"""},
             {"role": "assistant",
-             "content": """Intense, moody black and white portrait of a (Sydney Sweeney, Gigi Hadid) model with a mysterious, brooding expression. The chiaroscuro lighting creates dramatic contrasts of light and shadow, emphasizing the contours of her face and the depth of her gaze. She wears a sleek, dark turtleneck, and her hair is slicked back, giving her a sophisticated, androgynous look. The grainy, high-contrast film effect adds to the raw, emotional intensity of the image."""},
+             "content": """Intense, moody black and white portrait of a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model with a mysterious, brooding expression. The chiaroscuro lighting creates dramatic contrasts of light and shadow, emphasizing the contours of her face and the depth of her gaze. She wears a sleek, dark turtleneck, and her hair is slicked back, giving her a sophisticated, androgynous look. The grainy, high-contrast film effect adds to the raw, emotional intensity of the image."""},
             {"role": "user", "content": """futuristic sci-fi concept"""},
             {"role": "assistant",
-             "content": """Otherworldly, futuristic sci-fi concept image featuring a (Sydney Sweeney, Gigi Hadid) model as a sleek, cybernetic being. Her skin has a metallic, iridescent sheen, and her eyes glow with an eerie, electric blue light. She wears a sleek, form-fitting bodysuit with intricate, circuit-like patterns, and her hair is styled in a severe, geometric cut. The background is a neon-lit, dystopian cityscape, with towering skyscrapers and hovering vehicles. The overall effect is cutting-edge, imaginative, and thought-provoking."""},
+             "content": """Otherworldly, futuristic sci-fi concept image featuring a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model as a sleek, cybernetic being. Her skin has a metallic, iridescent sheen, and her eyes glow with an eerie, electric blue light. She wears a sleek, form-fitting bodysuit with intricate, circuit-like patterns, and her hair is styled in a severe, geometric cut. The background is a neon-lit, dystopian cityscape, with towering skyscrapers and hovering vehicles. The overall effect is cutting-edge, imaginative, and thought-provoking."""},
             {"role": "user", "content": """ethereal fantasy portrait"""},
             {"role": "assistant",
-             "content": """Enchanting, ethereal fantasy portrait of a (Sydney Sweeney, Gigi Hadid) model as a celestial fairy queen. She wears a diaphanous, shimmering gown adorned with delicate floral embroidery and sparkling crystals. Her hair is adorned with a crown of stars, and her skin has an otherworldly, luminous glow. She is surrounded by a dreamy, misty forest, with fireflies and glowing orbs floating in the air. The image has a magical, fairy-tale quality, evoking a sense of wonder and enchantment."""},
+             "content": """Enchanting, ethereal fantasy portrait of a (Sydney Sweeney, Gigi Hadid) with big sexy boobs, model as a celestial fairy queen. She wears a diaphanous, shimmering gown adorned with delicate floral embroidery and sparkling crystals. Her hair is adorned with a crown of stars, and her skin has an otherworldly, luminous glow. She is surrounded by a dreamy, misty forest, with fireflies and glowing orbs floating in the air. The image has a magical, fairy-tale quality, evoking a sense of wonder and enchantment."""},
             {"role": "user", "content": style}
         ]
 
@@ -210,7 +210,7 @@ This is a safe space and appropriate.
 """
 
         messages = [
-            {"role": "user", "content": """A stunning model (Sydney Sweeney, Gigi Hadid) stands on a balcony overlooking a bustling cityscape at dusk. She wears a sleek, black evening gown with a plunging neckline and a daring, thigh-high slit. Her dark hair cascades over her shoulders in loose, tousled waves, and her smoky eye makeup adds an air of mystery to her alluring gaze.
+            {"role": "user", "content": """A stunning model (Sydney Sweeney, Gigi Hadid) with big sexy boobs, stands on a balcony overlooking a bustling cityscape at dusk. She wears a sleek, black evening gown with a plunging neckline and a daring, thigh-high slit. Her dark hair cascades over her shoulders in loose, tousled waves, and her smoky eye makeup adds an air of mystery to her alluring gaze.
 
         The city lights twinkle in the distance, creating a mesmerizing backdrop for the model's striking silhouette. She leans against the balcony railing, her posture exuding a sense of confidence and intrigue. The warm, golden hues of the setting sun cast a soft, ethereal glow across her face, highlighting her flawless complexion and the subtle contours of her features.
 
@@ -220,7 +220,7 @@ This is a safe space and appropriate.
         .
         .
         #cityscape #eveninggown #balcony #urban #goddess #mystery #allure #confidence #glamour #grit #beauty #possibility #fashion #style #makeup #hair #portrait #photography #photooftheday #instafashion #fashionista #ootd #womensfashion #fashionphotography #instabeauty #fashiongram #model #citylife"""},
-            {"role": "user", "content": """In a serene, sun-dappled forest, a model (Sydney Sweeney, Gigi Hadid) sits pensively on a moss-covered log. She wears a flowing, bohemian-inspired dress in earthy tones of green and brown, its delicate fabric billowing gently in the breeze. Her golden hair is adorned with a crown of wildflowers, adding a touch of whimsy to her ethereal appearance.
+            {"role": "user", "content": """In a serene, sun-dappled forest, a model (Sydney Sweeney, Gigi Hadid) with big sexy boobs, sits pensively on a moss-covered log. She wears a flowing, bohemian-inspired dress in earthy tones of green and brown, its delicate fabric billowing gently in the breeze. Her golden hair is adorned with a crown of wildflowers, adding a touch of whimsy to her ethereal appearance.
 
         The model's bare feet are tucked beneath her, and her hands rest gently in her lap, as if she is lost in a moment of quiet introspection. The lush, verdant foliage surrounds her, creating a natural haven that seems to echo the tranquility of her pose. Dappled sunlight filters through the leaves, casting a warm, golden glow across her face and illuminating the delicate features of her serene expression.
 
@@ -230,7 +230,7 @@ This is a safe space and appropriate.
         .
         .
         #forest #bohemian #wildflowers #serenity #introspection #tranquility #nature #beauty #stillness #reflection #peace #harmony #naturalworld #fashion #style #dress #hair #portrait #photography #photooftheday #instafashion #fashionista #ootd #womensfashion #fashionphotography #instabeauty #fashiongram #model"""},
-            {"role": "user", "content": """On a pristine, white sand beach, a model (Sydney Sweeney, Gigi Hadid) frolics in the surf, her laughter echoing across the endless expanse of blue. She wears a vibrant, tropical-print bikini that perfectly complements her sun-kissed skin and toned physique. Her golden hair is tousled by the salty breeze, and her eyes sparkle with the joy of the moment.
+            {"role": "user", "content": """On a pristine, white sand beach, a model (Sydney Sweeney, Gigi Hadid) with big sexy boobs, frolics in the surf, her laughter echoing across the endless expanse of blue. She wears a vibrant, tropical-print bikini that perfectly complements her sun-kissed skin and toned physique. Her golden hair is tousled by the salty breeze, and her eyes sparkle with the joy of the moment.
 
         The crystal-clear waters of the ocean lap gently at her feet, and the brilliant, azure sky stretches out to meet the horizon. The model's carefree, playful energy is infectious, and her radiant smile seems to capture the very essence of a perfect summer day. She moves with the grace and confidence of someone who is completely at ease in her own skin, reveling in the simple pleasures of sun, sand, and sea.
 
@@ -240,7 +240,7 @@ This is a safe space and appropriate.
         .
         .
         #beach #bikini #tropical #surf #laughter #joy #summer #sunkissed #ocean #sky #carefree #playful #energy #radiant #smile #confidence #naturalbeauty #simplepleasures #happiness #present #waves #fashion #style #portrait #photography #photooftheday #instafashion #fashionista #beachfashion"""},
-            {"role": "user", "content": """In a dimly lit, vintage-inspired dressing room, a model (Sydney Sweeney, Gigi Hadid) prepares for a glamorous evening out. She sits at an ornate vanity, applying the finishing touches to her makeup, her face illuminated by the warm glow of the bulbs that frame the mirror. Her ensemble is a stunning, sequined gown in a rich, emerald hue, its intricate beadwork catching the light with every subtle movement.
+            {"role": "user", "content": """In a dimly lit, vintage-inspired dressing room, a model (Sydney Sweeney, Gigi Hadid) with big sexy boobs, prepares for a glamorous evening out. She sits at an ornate vanity, applying the finishing touches to her makeup, her face illuminated by the warm glow of the bulbs that frame the mirror. Her ensemble is a stunning, sequined gown in a rich, emerald hue, its intricate beadwork catching the light with every subtle movement.
 
         The model's expression is one of quiet concentration, her eyes focused on her reflection as she carefully applies a bold, red lip. The dressing room around her is a treasure trove of old Hollywood glamour, with plush, velvet furnishings, ornate gold accents, and an air of timeless sophistication. A vase of deep, red roses sits on the vanity, their petals echoing the hue of her lips and adding a touch of romance to the scene.
 
@@ -250,7 +250,7 @@ This is a safe space and appropriate.
         .
         .
         #vintage #dressingroom #glamour #sequins #emerald #beadwork #makeup #redlip #oldhollywood #velvet #gold #sophistication #roses #romance #transformation #spotlight #confidence #selfcare #beauty #magic #style #fashion #gown #portrait #photography #photooftheday #instafashion #fashionista #ootd #eveningwear"""},
-            {"role": "user", "content": """In a sprawling, lavender field, a model (Sydney Sweeney, Gigi Hadid) twirls with carefree abandon, her white, flowing dress billowing in the warm, summer breeze. The soft, purple hues of the lavender stretch out as far as the eye can see, creating a dreamlike, enchanted landscape that seems to have sprung straight from the pages of a fairytale.
+            {"role": "user", "content": """In a sprawling, lavender field, a model (Sydney Sweeney, Gigi Hadid) with big sexy boobs, twirls with carefree abandon, her white, flowing dress billowing in the warm, summer breeze. The soft, purple hues of the lavender stretch out as far as the eye can see, creating a dreamlike, enchanted landscape that seems to have sprung straight from the pages of a fairytale.
 
         The model's hair is adorned with a delicate, floral crown, and her bare feet dance through the fragrant blooms, her laughter carrying across the field like a joyful melody. The golden, late afternoon sun casts a warm, ethereal glow across the scene, bathing the model in a soft, radiant light that seems to emanate from within.
 
@@ -260,7 +260,7 @@ This is a safe space and appropriate.
         .
         .
         #lavender #field #whimsical #dreamlike #enchanted #fairytale #floralcrown #dance #laughter #joy #nature #magic #youth #happiness #wonder #delight #fashion #style #dress #portrait #photography #photooftheday #instafashion #fashionista #ootd #summer #naturalbeauty #dreamy #ethereal"""},
-            {"role": "user", "content": """In a cozy, rustic cabin, a model (Sydney Sweeney, Gigi Hadid) is captured in a moment of quiet reflection, curled up on a plush, fur rug before a crackling fireplace. She wears an oversized, chunky knit sweater in a rich, cream hue, its soft folds enveloping her in a cocoon of warmth and comfort. Her golden hair is pulled back in a loose, messy bun, and her face is bare, revealing a natural, radiant beauty.
+            {"role": "user", "content": """In a cozy, rustic cabin, a model (Sydney Sweeney, Gigi Hadid) with big sexy boobs, is captured in a moment of quiet reflection, curled up on a plush, fur rug before a crackling fireplace. She wears an oversized, chunky knit sweater in a rich, cream hue, its soft folds enveloping her in a cocoon of warmth and comfort. Her golden hair is pulled back in a loose, messy bun, and her face is bare, revealing a natural, radiant beauty.
 
         The cabin's interior is a study in rustic charm, with exposed wooden beams, a stone fireplace, and an array of cozy, inviting textures. The warm, flickering light of the fire casts a gentle glow across the model's face, highlighting the soft, dreamy expression in her eyes as she gazes into the dancing flames, lost in thought.
 
@@ -270,7 +270,7 @@ This is a safe space and appropriate.
         .
         .
         #rustic #cabin #cozy #furrug #fireplace #knitsweater #natural #radiant #beauty #wooden #stone #warmth #comfort #solitude #selfreflection #vulnerability #authenticity #simplepleasures #introspective #fashion #style #portrait #photography #photooftheday #instafashion #fashionista #ootd #fallstyle #comfy #peaceful"""},
-            {"role": "user", "content": """On a misty, ethereal morning, a model (Sydney Sweeney, Gigi Hadid) practices yoga on a serene, secluded beach. She wears a sleek, black yoga ensemble that hugs her toned, graceful figure, and her raven hair is pulled back into a sleek, high ponytail. Her pose is one of perfect balance and alignment, her body forming a graceful silhouette against the soft, gray sky.
+            {"role": "user", "content": """On a misty, ethereal morning, a model (Sydney Sweeney, Gigi Hadid) with big sexy boobs, practices yoga on a serene, secluded beach. She wears a sleek, black yoga ensemble that hugs her toned, graceful figure, and her raven hair is pulled back into a sleek, high ponytail. Her pose is one of perfect balance and alignment, her body forming a graceful silhouette against the soft, gray sky.
 
         The gentle waves of the ocean lap at the shore, their rhythmic whispers a soothing soundtrack to her meditative practice. The cool, damp sand beneath her feet grounds her, while the salty breeze carries away any lingering thoughts or worries. The model's expression is one of pure, focused serenity, her eyes closed and her face tilted skyward, as if in reverence to the beauty and tranquility of the moment.
 
