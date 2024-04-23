@@ -124,7 +124,7 @@ class Replicate:
         result = await workflow.execute_activity(
             Replicate._create_prediction,
             args=[
-                "philz1337x/clarity-upscaler:67f36b842ae88c238b2332d34630cc325f25ee14e9b50a188d6eca1a2a77816c",
+                "philz1337x/clarity-upscaler:b8a46b09384dc1ac996596bc14058e2b7604971128ee7de709a40d4bbf982d2c",
                 {
                     "image": image,
                     "prompt": prompt,
