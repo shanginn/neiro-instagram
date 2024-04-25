@@ -39,7 +39,7 @@ class CreatePostWorkflow:
             prompt=prompt,
             negative_prompt=negative_prompt,
             batch_size=1,
-            model_name='leosamsHelloworldSDXL_helloworldSDXL50_268813.safetensors',
+            model_name='leosamsHelloworldXL_helloworldXL60_376197.safetensors',
             sampler_name=Samplers.DPMPP_M_KARRAS,
             width=data.width,
             height=data.height,

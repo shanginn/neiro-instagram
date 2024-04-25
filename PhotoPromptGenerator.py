@@ -77,9 +77,6 @@ photo_setting_idea_messages_examples = [
      "content": "Photograph the model amidst a field of towering sunflowers, wearing a vibrant yellow dress that complements the scene"},
     {"role": "user", "content": "get me a new photo idea"},
     {"role": "assistant",
-     "content": "Shoot the model in a mirrored room creating infinite reflections, dressed in a shimmering, sequined dress"},
-    {"role": "user", "content": "get me a new photo idea"},
-    {"role": "assistant",
      "content": "Have the model pose in a classical sculpture garden, mimicking the poses of the statues for a timeless feel"},
     {"role": "user", "content": "get me a new photo idea"},
     {"role": "assistant",
@@ -282,7 +279,6 @@ class PhotoPromptGenerator:
             "Corporate",
             "Industrial",
             "Scientific",
-            "Medical",
             "Aerial",
             "Drone",
             "360 Degree",
@@ -290,7 +286,18 @@ class PhotoPromptGenerator:
             "Time-Lapse",
             "Night",
             "HDR (High Dynamic Range)",
-            "Infrared"
+            "Infrared",
+            "Taro",
+            "Mystic",
+            "Fantasy",
+            "Magical",
+            "Cards",
+            "Tarot reading",
+            "Horoscope",
+            "Zodiac",
+            "Astrology",
+            "Astronomy",
+            "Spiritual",
         ]
 
         random_type = random.choice(photography_types)
