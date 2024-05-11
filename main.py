@@ -30,6 +30,7 @@ async def run_workflow(client: Client):
         args=[CreatePostWorkflowInput()],
         id=uuid.uuid4().hex,
         task_queue=task_queue,
+        run_timeout=timedelta(minutes=10),
     )
 
     print(f"Started workflow with ID: {handle.id}")
@@ -46,6 +47,7 @@ async def start_schedule(client: Client, interval: timedelta) -> ScheduleHandle:
                 args=[CreatePostWorkflowInput()],
                 id='Пост фотографии в инстаграм',
                 task_queue=task_queue,
+                run_timeout=timedelta(minutes=10),
             ),
             spec=ScheduleSpec(
                 intervals=[ScheduleIntervalSpec(every=interval)],

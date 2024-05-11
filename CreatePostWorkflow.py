@@ -32,7 +32,7 @@ class CreatePostWorkflow:
 
         workflow.logger.info(f'Generated prompt: {prompt}')
 
-        negative_prompt = 'worst quality, low resolution, bad hands, distorted, twisted, watermark, blurry'
+        negative_prompt = 'nsfw, naked, worst quality, low resolution, bad hands, distorted, twisted, watermark, blurry'
         seed = await Util.get_seed()
 
         request = Txt2ImgRequest(
