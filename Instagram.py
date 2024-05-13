@@ -1,3 +1,4 @@
+import random
 from datetime import timedelta
 from pathlib import Path
 from typing import List, Dict
@@ -46,6 +47,44 @@ class Instagram:
         path = Path(tmp_file.name + '.png')
 
         await ImageUtil.download_and_save_file(photo, path)
+
+        if location is None:
+            random_cities = [
+                (36.8979091, 30.6357046),  # Antalya, Turkey
+                (41.004852, 28.6825454),  # Istanbul, Turkey
+                (55.755825, 37.617298),  # Moscow, Russia
+                (51.5073219, -0.1276474),  # London, United Kingdom
+                (40.7127281, -74.0060152),  # New York City, USA
+                (34.052235, -118.243683),  # Los Angeles, USA
+                (51.507322, -0.127647),  # London, UK
+                (35.689487, 139.691711),  # Tokyo, Japan
+                (40.712776, -74.005974),  # New York City, USA
+                (48.856613, 2.352222),  # Paris, France
+                (19.432608, -99.133209),  # Mexico City, Mexico
+                (55.755825, 37.617298),  # Moscow, Russia
+                (39.904202, 116.407394),  # Beijing, China
+                (28.613939, 77.209023),  # New Delhi, India
+                (-34.603722, -58.381592),  # Buenos Aires, Argentina
+                (30.044420, 31.235712),  # Cairo, Egypt
+                (-23.550520, -46.633308),  # São Paulo, Brazil
+                (41.008240, 28.978359),  # Istanbul, Turkey
+                (33.868820, 151.209290),  # Sydney, Australia
+                (37.774929, -122.419418),  # San Francisco, USA
+                (52.520008, 13.404954),  # Berlin, Germany
+                (23.129110, 113.264385),  # Guangzhou, China
+                (1.352083, 103.819839),  # Singapore
+                (35.689500, 51.388973),  # Tehran, Iran
+                (22.572645, 88.363892)  # Kolkata, India
+            ]
+
+            variation = 0.001
+            random_city = random.choice(random_cities)
+
+            lat, lon = random_city
+            new_lat = lat + random.uniform(-variation, variation)
+            new_lon = lon + random.uniform(-variation, variation)
+
+            location = self.client.location_search(lat=new_lat, lng=new_lon)[0]
 
         try:
             media = self.client.photo_upload(
